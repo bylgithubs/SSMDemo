@@ -10,10 +10,12 @@
 	http://www.springframework.org/schema/mvc
 	https://www.springframework.org/schema/mvc/spring-mvc.xsd">
 	
-	<mvc:annotation-driven/>
-	<mvc:default-servlet-handler/>
+		<mvc:annotation-driven/>	<!-- 声明采用注解方式注册bean -->
+	<mvc:default-servlet-handler/> <!-- 静态资源采用web的默认servlet转发策略 -->
+	<!-- 视图解析器 -->
 	<bean class="org.springframework.web.servlet.view.InternalResourceViewResolver">
 		<property name="viewClass" value="org.springframework.web.servlet.view.JstlView"/>
+		<!-- 当处理器返回“index”时，InternalResourceViewResolver解析器会自动添加前缀和后缀：/WEB-INF/jsp/index.jsp -->
 		<property name="prefix" value="WEB-INF/jsp/"/>
 		<property name="suffix" value=".jsp"></property>
 	</bean>
